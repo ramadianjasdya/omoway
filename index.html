@@ -1380,10 +1380,8 @@
   <!-- Application Logic & Data Loader -->
   <script>
     // ---------------------------------------------------------
-    // Configuration & Endpoints (Preserved 100%)
+    // Configuration — hanya URL Apps Script yang disimpan di sini
     // ---------------------------------------------------------
-    const SHEET_ID = '1m0BLVNea3k8-zvBE7llyIKVk6lKJYszlHT3wmDHbt7E';
-    const SHEET_NAME = 'Produk';
     const API = 'https://script.google.com/macros/s/AKfycbwmw0Hiwbf5cSyR2J0-vl808eZoTL625teywQYpfLX8RxQobL_t1sdWllt3oCp7KEGM/exec';
 
     let semua = [];
@@ -1719,75 +1717,47 @@
     }
 
     // ---------------------------------------------------------
-    // Google Sheets Data Reader (gviz JSONP endpoint)
+    // Data Loader — Mengambil produk via Apps Script (?aksi=produk)
+    // Google Sheet kini bisa dijadikan Private/Terkunci
     // ---------------------------------------------------------
-    function muatSheet() {
-      return new Promise((ok, gagal) => {
-        const fn = 'gv_' + Date.now() + Math.floor(Math.random() * 1e6);
-        const s = document.createElement('script');
-        const bersih = () => { clearTimeout(t); delete window[fn]; s.remove(); };
-        const t = setTimeout(() => { bersih(); gagal(new Error('timeout')); }, 12000);
-
-        window[fn] = d => {
-          bersih();
-          if (d && d.status === 'ok') ok(d.table);
-          else gagal(new Error('status gviz bukan ok'));
-        };
-
-        s.onerror = () => { bersih(); gagal(new Error('gagal memuat script')); };
-        s.src = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?sheet=' + encodeURIComponent(SHEET_NAME) +
-          '&headers=1&tqx=out:json;responseHandler:' + fn;
-        document.head.appendChild(s);
-      });
-    }
-
-    function ubahTabel(tabel) {
-      const label = tabel.cols.map(c => String(c.label || '').trim().toLowerCase());
-      const idx = (nama, cadangan) => { const i = label.indexOf(nama); return i >= 0 ? i : cadangan; };
-
-      const cNama = idx('nama', 0);
-      const cBrand = idx('brand', 1);
-      const cSub = idx('subtitle', 2);
-      const cLink = idx('link', 3);
-      const cGambar = idx('gambar', 4);
-      const cKategori = idx('kategori', 5);
-      const cBadge = idx('badge', 7);
-
-      const nilai = (baris, i) => { const c = baris.c[i]; return c && c.v != null ? String(c.v).trim() : ''; };
-
-      return tabel.rows.map((r, i) => {
-        const badge = nilai(r, cBadge).toUpperCase();
-        return {
-          id: i + 2,
-          nama: nilai(r, cNama),
-          brand: nilai(r, cBrand),
-          subtitle: nilai(r, cSub),
-          link: nilai(r, cLink),
-          gambar: nilai(r, cGambar),
-          kategori: nilai(r, cKategori),
-          subjudul: nilai(r, cSub),
-          badge: badge
-        };
-      }).filter(p => p.nama && /^https?:\/\//i.test(p.link)).reverse();
-    }
-
-    function cobaMuat(sisa) {
-      return muatSheet().catch(err => {
-        if (sisa <= 0) throw err;
-        return new Promise(r => setTimeout(r, 1500)).then(() => cobaMuat(sisa - 1));
-      });
+    function muatProduk(sisa) {
+      return fetch(API + '?aksi=produk', { cache: 'no-store' })
+        .then(res => {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(data => {
+          if (!Array.isArray(data)) throw new Error('Response bukan array JSON');
+          return data;
+        })
+        .catch(err => {
+          if (sisa <= 0) throw err;
+          return new Promise(r => setTimeout(r, 1500)).then(() => muatProduk(sisa - 1));
+        });
     }
 
     // Execute Data Loading
-    cobaMuat(2)
-      .then(tabel => {
-        semua = ubahTabel(tabel);
+    muatProduk(2)
+      .then(data => {
+        // Normalkan field agar kompatibel dengan render yang sudah ada
+        semua = data.map(p => ({
+          id:       p.id,
+          nama:     String(p.nama    || '').trim(),
+          brand:    String(p.brand   || '').trim(),
+          subtitle: String(p.subtitle|| '').trim(),
+          subjudul: String(p.subtitle|| '').trim(),
+          link:     String(p.link    || '').trim(),
+          gambar:   String(p.gambar  || '').trim(),
+          kategori: String(p.kategori|| '').trim(),
+          badge:    String(p.badge   || '').trim().toUpperCase()
+        })).filter(p => p.nama && /^https?:\/\//i.test(p.link));
+
         if (statTotalProd) statTotalProd.textContent = semua.length;
         renderKategori();
         tampil();
       })
       .catch(err => {
-        console.warn('Gagal memuat sheet:', err.message);
+        console.warn('Gagal memuat produk:', err.message);
         grid.replaceChildren(
           el('div', { className: 'empty-state' }, [
             el('div', { className: 'empty-state-icon', textContent: '⚠️' }),
@@ -1796,6 +1766,7 @@
           ])
         );
       });
+
 
     // ---------------------------------------------------------
     // Event Listeners (Search, Clear, Scroll To Top)
