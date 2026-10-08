@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0d0e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Temukan aksesoris terbaik dan terkurasi untuk OMO X kesayanganmu dengan penawaran harga terbaik.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OMOWAY ACCESSORIES by Vinzee">
+  <meta property="og:description" content="Temukan aksesoris terbaik untuk OMO X kesayanganmu!">
+  <meta property="og:url" content="https://eeznivx.github.io/">
+  <meta property="og:image" content="https://eeznivx.github.io/omoway/logo.png">
+  <meta property="og:image:width" content="630">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="logo.png">
+  <title>OMOWAY ACCESSORIES — Curated Gear for OMO X</title>
+
+  <!-- Google Fonts: Inter (Signature Isak Font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       ISAK DESIGN SYSTEM VARIABLES & FOUNDATION
+       ========================================================================== */
+    :root {
+      --bg-body: #0a0d0e;
+      --bg-surface: #111517;
+      --bg-card: #15191c;
+      --bg-card-hover: #191e22;
+      --bg-pill: rgba(255, 255, 255, 0.05);
+      --bg-pill-hover: rgba(255, 255, 255, 0.1);
+      
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-medium: rgba(255, 255, 255, 0.14);
+      --border-hover: rgba(0, 222, 81, 0.45);
+      
+      /* Signature Isak Green */
+      --primary: #00DE51;
+      --primary-hover: #00f85b;
+      --primary-glow: rgba(0, 222, 81, 0.28);
+      --primary-dim: rgba(0, 222, 81, 0.12);
+      
+      --text-main: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.74);
+      --text-dim: rgba(255, 255, 255, 0.45);
+      --text-dark: #070909;
+
+      /* Badges */
+      --badge-hot-bg: rgba(239, 68, 68, 0.18);
+      --badge-hot-text: #ff5c5c;
+      --badge-hot-border: rgba(239, 68, 68, 0.35);
+
+      --badge-new-bg: rgba(59, 130, 246, 0.18);
+      --badge-new-text: #60a5fa;
+      --badge-new-border: rgba(59, 130, 246, 0.35);
+
+      --badge-rec-bg: rgba(0, 222, 81, 0.18);
+      --badge-rec-text: #00DE51;
+      --badge-rec-border: rgba(0, 222, 81, 0.35);
+
+      /* Radii */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-pill: 9999px;
+
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border-subtle);
+      --shadow-hover: 0 16px 36px -4px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--border-hover), 0 0 24px var(--primary-glow);
+
+      --transition-fast: 0.18s ease;
+      --transition-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-main);
+      background-color: var(--bg-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    /* Subtle background grid pattern like modern dark portfolios */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(0, 222, 81, 0.08) 0%, transparent 60%),
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 100% 100%, 48px 48px, 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ==========================================================================
+       TOP NAVBAR (ISAK STYLE)
+       ========================================================================== */
+    .top-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(10, 13, 14, 0.85);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: var(--transition-fast);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      padding: 0 4px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-logo-frame {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: #14181a;
+      border: 1px solid var(--border-medium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      transition: var(--transition-normal);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-logo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .brand-wrap:hover .brand-logo-frame {
+      border-color: var(--primary);
+      box-shadow: 0 0 16px var(--primary-glow);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .brand-tagline {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Right Header: Isak Live Local Clock */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .live-clock-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      background: var(--bg-pill);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .clock-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      box-shadow: 0 0 8px var(--primary);
+      animation: pulse-dot 2s infinite ease-in-out;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* ==========================================================================
+       HERO SECTION (ISAK HEADLINE & PILL HIGHLIGHTS)
+       ========================================================================== */
+    .hero-section {
+      padding: 52px 0 32px;
+      text-align: center;
+    }
+
+    .hero-badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      background: var(--primary-dim);
+      border: 1px solid rgba(0, 222, 81, 0.3);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 5.2vw, 3.8rem);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.18;
+      color: #ffffff;
+      max-width: 900px;
+      margin: 0 auto 18px;
+    }
+
+    /* Isak signature green pill tags around words */
+    .pill-green {
+      display: inline-block;
+      padding: 2px 14px;
+      border-radius: var(--radius-pill);
+      background: var(--primary);
+      color: var(--text-dark);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin: 2px 2px;
+      box-shadow: 0 0 24px rgba(0, 222, 81, 0.45);
+      transform: translateY(-2px);
+      transition: var(--transition-normal);
+    }
+
+    .pill-green:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 0 32px rgba(0, 222, 81, 0.65);
+    }
+
+    .hero-desc {
+      font-size: clamp(0.95rem, 2vw, 1.12rem);
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 28px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    /* Mini Stats Counter Pill Container */
+    .hero-stats-row {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 34px;
+      padding: 8px 22px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .stat-number {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: 18px;
+      background: var(--border-medium);
+    }
+
+    /* ==========================================================================
+       SEARCH BAR & CONTROLS
+       ========================================================================== */
+    .search-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-pill);
+      padding: 6px 10px 6px 18px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      transition: var(--transition-normal);
+    }
+
+    .search-box:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-dim), 0 8px 24px rgba(0, 0, 0, 0.5);
+      background: #151a1d;
+    }
+
+    .search-icon {
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    .search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 16px; /* 16px prevents mobile browser zoom */
+      font-weight: 400;
+      min-width: 0;
+      height: 40px;
+    }
+
+    .search-input::placeholder {
+      color: var(--text-dim);
+    }
+
+    .search-clear-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      transition: var(--transition-fast);
+      opacity: 0;
+      pointer-events: none;
+      flex-shrink: 0;
+      touch-action: manipulation;
+    }
+
+    .search-clear-btn.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .search-clear-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       CATEGORY FILTER PILLS (ISAK TAB STYLE)
+       ========================================================================== */
+    .filter-section {
+      padding: 14px 0 20px;
+      position: sticky;
+      top: 70px;
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(10, 13, 14, 0.92);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: top var(--transition-fast);
+    }
+
+    .category-scroll-container {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding: 4px 2px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .category-scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      background: var(--bg-pill);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition-normal);
+      user-select: none;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .cat-pill:hover {
+      background: var(--bg-pill-hover);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .cat-pill.active {
+      background: var(--primary);
+      color: var(--text-dark);
+      border-color: var(--primary);
+      box-shadow: 0 0 18px var(--primary-glow);
+    }
+
+    .cat-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1px 7px;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+      transition: var(--transition-fast);
+    }
+
+    .cat-pill.active .cat-count {
+      background: rgba(0, 0, 0, 0.2);
+      color: var(--text-dark);
+    }
+
+    /* Results Header / Counter */
+    .catalog-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0 16px;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    .catalog-meta strong {
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       PRODUCT GRID & CARDS (ISAK DARK NEON DESIGN)
+       ========================================================================== */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding-bottom: 72px;
+    }
+
+    .product-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition-normal);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+    }
+
+    /* Image Wrapper with 1:1 Aspect Ratio */
+    .card-thumb-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #111517;
+      overflow: hidden;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .product-card:hover .card-img {
+      transform: scale(1.06);
+    }
+
+    .no-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dim);
+      background: #14181a;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    /* Badges (NEW, HOT, RECOMMENDED) */
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      z-index: 2;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .card-badge.HOT {
+      background: var(--badge-hot-bg);
+      color: var(--badge-hot-text);
+      border: 1px solid var(--badge-hot-border);
+      box-shadow: 0 2px 10px rgba(239, 68, 68, 0.25);
+    }
+
+    .card-badge.NEW {
+      background: var(--badge-new-bg);
+      color: var(--badge-new-text);
+      border: 1px solid var(--badge-new-border);
+      box-shadow: 0 2px 10px rgba(59, 130, 246, 0.25);
+    }
+
+    .card-badge.RECOMMENDED {
+      background: var(--badge-rec-bg);
+      color: var(--badge-rec-text);
+      border: 1px solid var(--badge-rec-border);
+      box-shadow: 0 2px 10px var(--primary-glow);
+    }
+
+    /* Card Details Body */
+    .card-body {
+      padding: 16px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 8px;
+    }
+
+    .card-brand-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .card-brand-tag .brand-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .card-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: #ffffff;
+      margin: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      height: 2.7em;
+    }
+
+    .card-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+
+    /* Isak Signature CTA Button (tf-btn-action) */
+    .card-cta-btn {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      background: var(--primary);
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      transition: var(--transition-normal);
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .card-cta-btn svg {
+      transition: transform 0.25s ease;
+      stroke-width: 2.5;
+      flex-shrink: 0;
+    }
+
+    .card-cta-btn:hover {
+      background: var(--primary-hover);
+      box-shadow: 0 0 20px var(--primary-glow);
+    }
+
+    .card-cta-btn:hover svg {
+      transform: translate(3px, -3px);
+    }
+
+    /* Subtle shine animation on button hover */
+    .card-cta-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.4) 50%, transparent 80%);
+      transition: 0.6s ease;
+    }
+
+    .product-card:hover .card-cta-btn::after {
+      left: 120%;
+    }
+
+    /* ==========================================================================
+       EMPTY & LOADING STATES
+       ========================================================================== */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 80px 20px;
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      border: 1px dashed var(--border-medium);
+    }
+
+    .empty-state-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      opacity: 0.7;
+    }
+
+    .empty-state-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .empty-state-desc {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    /* Skeleton Loading Pulse */
+    .skeleton-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .skeleton-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(90deg, #13171a 25%, #1c2226 50%, #13171a 75%);
+      background-size: 200% 100%;
+      animation: skeleton-shimmer 1.5s infinite;
+    }
+
+    .skeleton-text {
+      height: 14px;
+      margin: 12px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #13171a 25%, #1c2226 50%, #13171a 75%);
+      background-size: 200% 100%;
+      animation: skeleton-shimmer 1.5s infinite;
+    }
+
+    @keyframes skeleton-shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* ==========================================================================
+       FLOATING TOOL DOCK (SCROLL TO TOP)
+       ========================================================================== */
+    .floating-dock {
+      position: fixed;
+      bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+      right: 24px;
+      z-index: 60;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .dock-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(20, 25, 28, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-medium);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      transition: var(--transition-normal);
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      touch-action: manipulation;
+    }
+
+    .dock-btn.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .dock-btn:hover {
+      background: var(--primary);
+      color: var(--text-dark);
+      border-color: var(--primary);
+      box-shadow: 0 0 20px var(--primary-glow);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       FOOTER (ISAK THEME FOOTER-2 STYLE)
+       ========================================================================== */
+    .site-footer {
+      margin-top: auto;
+      border-top: 1px solid var(--border-subtle);
+      background: #090c0d;
+      padding: 60px 0 36px;
+      position: relative;
+    }
+
+    .footer-quote-box {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 36px;
+      padding: 0 16px;
+    }
+
+    .footer-quote {
+      font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+      font-weight: 500;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 8px;
+      font-style: italic;
+    }
+
+    .footer-quote-author {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border-subtle);
+      margin-bottom: 30px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.82rem;
+    }
+
+    .footer-disclaimer {
+      max-width: 760px;
+      line-height: 1.6;
+    }
+
+    .footer-copyright {
+      color: var(--text-dim);
+    }
+
+    /* ==========================================================================
+       MOBILE RESPONSIVENESS (SUPERIOR MOBILE EXPERIENCE)
+       ========================================================================== */
+    @media (max-width: 768px) {
+      .nav-inner {
+        height: 60px;
+      }
+
+      .top-header {
+        height: 60px;
+      }
+
+      .brand-title {
+        font-size: 0.95rem;
+      }
+
+      .brand-logo-frame {
+        width: 38px;
+        height: 38px;
+      }
+
+      .hero-section {
+        padding: 34px 0 20px;
+      }
+
+      .hero-title {
+        font-size: 1.95rem;
+        line-height: 1.22;
+        margin-bottom: 14px;
+      }
+
+      .pill-green {
+        padding: 1px 10px;
+        font-size: 0.9em;
+      }
+
+      .hero-desc {
+        font-size: 0.92rem;
+        margin-bottom: 22px;
+      }
+
+      .filter-section {
+        top: 60px;
+        padding: 10px 0 14px;
+      }
+
+      .cat-pill {
+        padding: 6px 14px;
+        font-size: 0.82rem;
+      }
+
+      /* 2-Column Mobile Grid for dense and intuitive browsing */
+      .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        padding-bottom: 56px;
+      }
+
+      .card-body {
+        padding: 12px;
+        gap: 6px;
+      }
+
+      .card-title {
+        font-size: 0.84rem;
+        line-height: 1.32;
+        height: 2.64em;
+      }
+
+      .card-subtitle {
+        display: none; /* Hide subtitle on small cards to save vertical space */
+      }
+
+      .card-badge {
+        top: 8px;
+        left: 8px;
+        padding: 3px 8px;
+        font-size: 0.6rem;
+      }
+
+      .card-cta-btn {
+        padding: 8px 10px;
+        font-size: 0.78rem;
+        gap: 4px;
+      }
+
+      .floating-dock {
+        bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+        right: 18px;
+      }
+
+      .dock-btn {
+        width: 42px;
+        height: 42px;
+      }
+
+      .site-footer {
+        padding: 40px 0 24px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      /* Clean 3-item grid for stats on mobile */
+      .hero-stats-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto 26px;
+        padding: 10px 8px;
+        border-radius: var(--radius-md);
+      }
+
+      .stat-divider {
+        display: none;
+      }
+
+      .stat-item {
+        flex-direction: column;
+        gap: 2px;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .stat-number {
+        font-size: 1.05rem;
+      }
+
+      .stat-item span:last-child {
+        font-size: 0.68rem;
+        line-height: 1.2;
+        color: var(--text-dim);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 14px;
+      }
+
+      .live-clock-badge {
+        font-size: 0.72rem;
+        padding: 5px 10px;
+      }
+
+      .clock-date, .clock-sep {
+        display: none; /* Keep pulsing dot and compact HH:MM WIB on mobile */
+      }
+    }
+
+    @media (max-width: 360px) {
+      .btn-text-ext {
+        display: none; /* Shows "Beli ↗" on ultra-compact screens */
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Header Bar (Isak Style with Live Clock) -->
+  <header class="top-header">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="brand-wrap" aria-label="OMOWAY Home">
+          <div class="brand-logo-frame">
+            <img src="logo.png" alt="OMOWAY Logo" width="36" height="36">
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">OMOWAY</span>
+            <span class="brand-tagline">Accessories</span>
+          </div>
+        </a>
+
+        <div class="header-right">
+          <div class="live-clock-badge" id="live-clock-badge" title="Waktu Saat Ini">
+            <span class="clock-dot"></span>
+            <span id="live-clock-text">Memuat waktu...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Signature Isak Highlights -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-badge-status">
+        <span class="clock-dot"></span>
+        <span>Katalog Terverifikasi</span>
+      </div>
+
+      <h1 class="hero-title">
+        Temukan <span class="pill-green">aksesoris</span> &amp; <span class="pill-green">gear terbaik</span> untuk OMO X
+      </h1>
+
+      <p class="hero-desc">
+        Koleksi aksesoris eksklusif terkurasi untuk kenyamanan, perlindungan, dan estetika OMO X kesayanganmu langsung dari seller terpercaya.
+      </p>
+
+      <!-- Mini Stats Row -->
+      <div class="hero-stats-row">
+        <div class="stat-item">
+          <span class="stat-number" id="stat-total-prod">-</span>
+          <span>Produk Terdata</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span>Terkurasi &amp; Aman</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">Update</span>
+          <span>Harian Otomatis</span>
+        </div>
+      </div>
+
+      <!-- Search Input Box -->
+      <div class="search-wrapper">
+        <div class="search-box">
+          <span class="search-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+          <input type="text" id="q" class="search-input" placeholder="Cari nama produk, brand, atau kategori..." aria-label="Cari produk" autocomplete="off">
+          <button type="button" id="search-clear" class="search-clear-btn" aria-label="Hapus pencarian">✕</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Horizontal Filter Section (Pill Tabs) -->
+  <section class="filter-section">
+    <div class="container">
+      <nav class="category-scroll-container" id="kategori" aria-label="Filter Kategori Produk">
+        <!-- Rendered dynamically -->
+      </nav>
+    </div>
+  </section>
+
+  <!-- Main Catalog Grid Area -->
+  <main class="container">
+    <div class="catalog-meta">
+      <span id="results-count-text">Menampilkan produk...</span>
+      <span id="active-category-label">Semua Kategori</span>
+    </div>
+
+    <section class="products-grid" id="grid">
+      <!-- Loading skeletons initially -->
+      <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-text" style="width: 70%;"></div><div class="skeleton-text" style="width: 40%;"></div></div>
+      <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-text" style="width: 70%;"></div><div class="skeleton-text" style="width: 40%;"></div></div>
+      <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-text" style="width: 70%;"></div><div class="skeleton-text" style="width: 40%;"></div></div>
+      <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-text" style="width: 70%;"></div><div class="skeleton-text" style="width: 40%;"></div></div>
+    </section>
+  </main>
+
+  <!-- Floating Dock (Go-to-top button) -->
+  <div class="floating-dock">
+    <button type="button" id="btn-gotop" class="dock-btn" aria-label="Kembali ke atas" title="Kembali ke atas">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Premium Footer (Isak theme footer style) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-quote-box">
+        <p class="footer-quote">
+          “Tingkatkan kenyamanan dan perlindungan perjalanan OMO X dengan aksesoris pilihan terbaik.”
+        </p>
+        <p class="footer-quote-author">OMOWAY Official Affiliate</p>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">
+          Tautan di situs ini merupakan link afiliasi resmi. Kami berpotensi memperoleh komisi dari transaksi yang valid tanpa dikenakan biaya tambahan sedikitpun untuk Anda.
+        </p>
+        <p class="footer-copyright">
+          &copy; <span id="year-copy"></span> OMOWAY ACCESSORIES by Vinzee. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Logic & Data Loader -->
+  <script>
+    // ---------------------------------------------------------
+    // Configuration & Endpoints (Preserved 100%)
+    // ---------------------------------------------------------
+    const SHEET_ID = '1m0BLVNea3k8-zvBE7llyIKVk6lKJYszlHT3wmDHbt7E';
+    const SHEET_NAME = 'Produk';
+    const API = 'https://script.google.com/macros/s/AKfycbwmw0Hiwbf5cSyR2J0-vl808eZoTL625teywQYpfLX8RxQobL_t1sdWllt3oCp7KEGM/exec';
+
+    let semua = [];
+    let aktifKat = '';
+
+    const grid = document.getElementById('grid');
+    const q = document.getElementById('q');
+    const clearBtn = document.getElementById('search-clear');
+    const navKat = document.getElementById('kategori');
+    const resultsCountText = document.getElementById('results-count-text');
+    const activeCategoryLabel = document.getElementById('active-category-label');
+    const statTotalProd = document.getElementById('stat-total-prod');
+    const btnGoTop = document.getElementById('btn-gotop');
+
+    // Set Copyright Year
+    document.getElementById('year-copy').textContent = new Date().getFullYear();
+
+    // ---------------------------------------------------------
+    // Real-Time Local Clock (Isak Theme Style)
+    // ---------------------------------------------------------
+    function updateClock() {
+      const now = new Date();
+      const optionsDate = { weekday: 'short', day: '2-digit', month: 'short' };
+      const datePart = now.toLocaleDateString('id-ID', optionsDate);
+      const hours = String(now.getHours()).padStart(2, '0');
+      const mins = String(now.getMinutes()).padStart(2, '0');
+      const clockEl = document.getElementById('live-clock-text');
+      if (clockEl) {
+        clockEl.innerHTML = '<span class="clock-date">' + datePart + '</span><span class="clock-sep"> • </span><span class="clock-time">' + hours + ':' + mins + ' WIB</span>';
+      }
+    }
+    updateClock();
+    setInterval(updateClock, 30000);
+
+    // ---------------------------------------------------------
+    // Helper: Create DOM Element
+    // ---------------------------------------------------------
+    function el(tag, props, children) {
+      const element = document.createElement(tag);
+      if (props) {
+        Object.entries(props).forEach(([key, val]) => {
+          if (key === 'className') {
+            element.className = val;
+          } else if (key.startsWith('data-') || key.startsWith('aria-')) {
+            element.setAttribute(key, val);
+          } else {
+            element[key] = val;
+          }
+        });
+      }
+      (children || []).forEach(child => {
+        if (typeof child === 'string') {
+          element.appendChild(document.createTextNode(child));
+        } else if (child) {
+          element.appendChild(child);
+        }
+      });
+      return element;
+    }
+
+    // ---------------------------------------------------------
+    // Category Tabs Rendering (Isak Pill Style)
+    // ---------------------------------------------------------
+    function renderKategori() {
+      const hitung = {};
+      semua.forEach(p => {
+        if (p.kategori) {
+          hitung[p.kategori] = (hitung[p.kategori] || 0) + 1;
+        }
+      });
+
+      const daftar = Object.keys(hitung).sort((a, b) => hitung[b] - hitung[a] || a.localeCompare(b, 'id'));
+      navKat.replaceChildren();
+
+      if (!daftar.length) {
+        navKat.style.display = 'none';
+        return;
+      }
+      navKat.style.display = 'flex';
+
+      const items = [['', 'Semua', semua.length]].concat(daftar.map(k => [k, k, hitung[k]]));
+
+      items.forEach(([nilai, label, jml]) => {
+        const isSelected = aktifKat === nilai;
+        const b = el('button', {
+          type: 'button',
+          className: 'cat-pill' + (isSelected ? ' active' : ''),
+          'aria-pressed': isSelected ? 'true' : 'false'
+        }, [
+          el('span', { textContent: label }),
+          el('span', { className: 'cat-count', textContent: String(jml) })
+        ]);
+
+        b.addEventListener('click', () => {
+          aktifKat = (aktifKat === nilai) ? '' : nilai;
+          renderKategori();
+          tampil();
+          // Auto scroll selected pill into view gently
+          b.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        });
+
+        navKat.appendChild(b);
+      });
+
+      // Update active category badge text
+      activeCategoryLabel.textContent = aktifKat ? 'Kategori: ' + aktifKat : 'Semua Kategori';
+    }
+
+    // ---------------------------------------------------------
+    // Render Products Grid
+    // ---------------------------------------------------------
+    function tampil() {
+      const kata = q.value.trim().toLowerCase();
+
+      // Show/hide clear search button
+      if (kata) {
+        clearBtn.classList.add('active');
+      } else {
+        clearBtn.classList.remove('active');
+      }
+
+      const hasil = semua.filter(p => {
+        const matchKata = !kata || (p.nama + ' ' + p.brand + ' ' + p.subjudul + ' ' + p.kategori).toLowerCase().includes(kata);
+        const matchKat = !aktifKat || p.kategori === aktifKat;
+        return matchKata && matchKat;
+      });
+
+      // Update results meta info
+      resultsCountText.innerHTML = 'Menampilkan <strong>' + hasil.length + '</strong> produk';
+      activeCategoryLabel.textContent = aktifKat ? 'Kategori: ' + aktifKat : 'Semua Kategori';
+
+      grid.replaceChildren();
+
+      if (!hasil.length) {
+        const emptyBox = el('div', { className: 'empty-state' }, [
+          el('div', { className: 'empty-state-icon', textContent: '🔍' }),
+          el('h3', { className: 'empty-state-title', textContent: 'Tidak ada produk yang cocok' }),
+          el('p', { className: 'empty-state-desc', textContent: 'Coba ubah kata kunci pencarian atau pilih filter kategori lainnya.' })
+        ]);
+        grid.appendChild(emptyBox);
+        return;
+      }
+
+      hasil.forEach(p => {
+        // Thumbnail Image
+        const hasImg = p.gambar && /^https?:\/\//i.test(p.gambar);
+        const imgNode = hasImg
+          ? el('img', {
+              src: p.gambar,
+              alt: p.nama,
+              className: 'card-img',
+              loading: 'lazy',
+              referrerPolicy: 'no-referrer'
+            })
+          : el('div', { className: 'no-img-placeholder', textContent: 'OMO X Gear' });
+
+        const thumb = el('div', { className: 'card-thumb-wrap' }, [imgNode]);
+
+        // Fallback if image fails to load from CDN
+        if (hasImg) {
+          imgNode.onerror = function() {
+            this.onerror = null;
+            this.style.display = 'none';
+            thumb.appendChild(el('div', { className: 'no-img-placeholder', textContent: 'OMO X Gear' }));
+          };
+        }
+
+        // Badge pill
+        if (p.badge) {
+          const badgeClass = 'card-badge ' + p.badge;
+          thumb.appendChild(el('span', { className: badgeClass, textContent: p.badge }));
+        }
+
+        // Body content
+        const brandTag = el('div', { className: 'card-brand-tag' }, [
+          el('span', { className: 'brand-dot' }),
+          el('span', { textContent: p.brand || 'OMOWAY ACC' })
+        ]);
+
+        const titleNode = el('h3', { className: 'card-title', textContent: p.nama });
+        
+        const cardBodyChildren = [brandTag, titleNode];
+
+        if (p.subtitle) {
+          cardBodyChildren.push(el('p', { className: 'card-subtitle', textContent: p.subtitle }));
+        }
+
+        // CTA Affiliate Button (with signature Isak diagonal arrow)
+        const arrowSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        arrowSvg.setAttribute('viewBox', '0 0 24 24');
+        arrowSvg.setAttribute('width', '15');
+        arrowSvg.setAttribute('height', '15');
+        arrowSvg.setAttribute('fill', 'none');
+        arrowSvg.setAttribute('stroke', 'currentColor');
+        arrowSvg.setAttribute('stroke-linecap', 'round');
+        arrowSvg.setAttribute('stroke-linejoin', 'round');
+
+        const line1 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line1.setAttribute('x1', '7');
+        line1.setAttribute('y1', '17');
+        line1.setAttribute('x2', '17');
+        line1.setAttribute('y2', '7');
+
+        const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+        poly.setAttribute('points', '7 7 17 7 17 17');
+
+        arrowSvg.appendChild(line1);
+        arrowSvg.appendChild(poly);
+
+        const beli = el('a', {
+          className: 'card-cta-btn',
+          href: p.link,
+          target: '_blank',
+          rel: 'nofollow sponsored noopener'
+        }, [
+          el('span', { className: 'btn-text' }, [
+            el('span', { textContent: 'Beli' }),
+            el('span', { className: 'btn-text-ext', textContent: ' Sekarang' })
+          ]),
+          arrowSvg
+        ]);
+
+        // Keep Click Tracking to Apps Script API
+        beli.addEventListener('click', () => {
+          fetch(API + '?aksi=klik&id=' + p.id, { mode: 'no-cors', keepalive: true }).catch(() => {});
+        });
+
+        cardBodyChildren.push(beli);
+
+        const bodyWrap = el('div', { className: 'card-body' }, cardBodyChildren);
+        const card = el('article', { className: 'product-card' }, [thumb, bodyWrap]);
+
+        grid.appendChild(card);
+      });
+    }
+
+    // ---------------------------------------------------------
+    // Google Sheets Data Reader (gviz JSONP endpoint)
+    // ---------------------------------------------------------
+    function muatSheet() {
+      return new Promise((ok, gagal) => {
+        const fn = 'gv_' + Date.now() + Math.floor(Math.random() * 1e6);
+        const s = document.createElement('script');
+        const bersih = () => { clearTimeout(t); delete window[fn]; s.remove(); };
+        const t = setTimeout(() => { bersih(); gagal(new Error('timeout')); }, 12000);
+
+        window[fn] = d => {
+          bersih();
+          if (d && d.status === 'ok') ok(d.table);
+          else gagal(new Error('status gviz bukan ok'));
+        };
+
+        s.onerror = () => { bersih(); gagal(new Error('gagal memuat script')); };
+        s.src = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?sheet=' + encodeURIComponent(SHEET_NAME) +
+          '&headers=1&tqx=out:json;responseHandler:' + fn;
+        document.head.appendChild(s);
+      });
+    }
+
+    function ubahTabel(tabel) {
+      const label = tabel.cols.map(c => String(c.label || '').trim().toLowerCase());
+      const idx = (nama, cadangan) => { const i = label.indexOf(nama); return i >= 0 ? i : cadangan; };
+
+      const cNama = idx('nama', 0);
+      const cBrand = idx('brand', 1);
+      const cSub = idx('subtitle', 2);
+      const cLink = idx('link', 3);
+      const cGambar = idx('gambar', 4);
+      const cKategori = idx('kategori', 5);
+      const cBadge = idx('badge', 7);
+
+      const nilai = (baris, i) => { const c = baris.c[i]; return c && c.v != null ? String(c.v).trim() : ''; };
+
+      return tabel.rows.map((r, i) => {
+        const badge = nilai(r, cBadge).toUpperCase();
+        return {
+          id: i + 2,
+          nama: nilai(r, cNama),
+          brand: nilai(r, cBrand),
+          subtitle: nilai(r, cSub),
+          link: nilai(r, cLink),
+          gambar: nilai(r, cGambar),
+          kategori: nilai(r, cKategori),
+          subjudul: nilai(r, cSub),
+          badge: badge
+        };
+      }).filter(p => p.nama && /^https?:\/\//i.test(p.link)).reverse();
+    }
+
+    function cobaMuat(sisa) {
+      return muatSheet().catch(err => {
+        if (sisa <= 0) throw err;
+        return new Promise(r => setTimeout(r, 1500)).then(() => cobaMuat(sisa - 1));
+      });
+    }
+
+    // Execute Data Loading
+    cobaMuat(2)
+      .then(tabel => {
+        semua = ubahTabel(tabel);
+        if (statTotalProd) statTotalProd.textContent = semua.length;
+        renderKategori();
+        tampil();
+      })
+      .catch(err => {
+        console.warn('Gagal memuat sheet:', err.message);
+        grid.replaceChildren(
+          el('div', { className: 'empty-state' }, [
+            el('div', { className: 'empty-state-icon', textContent: '⚠️' }),
+            el('h3', { className: 'empty-state-title', textContent: 'Katalog gagal dimuat' }),
+            el('p', { className: 'empty-state-desc', textContent: 'Silakan refresh atau periksa koneksi internet Anda.' })
+          ])
+        );
+      });
+
+    // ---------------------------------------------------------
+    // Event Listeners (Search, Clear, Scroll To Top)
+    // ---------------------------------------------------------
+    q.addEventListener('input', tampil);
+
+    clearBtn.addEventListener('click', () => {
+      q.value = '';
+      clearBtn.classList.remove('active');
+      q.focus();
+      tampil();
+    });
+
+    // Scroll to Top Visibility & Action
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 280) {
+        btnGoTop.classList.add('visible');
+      } else {
+        btnGoTop.classList.remove('visible');
+      }
+    });
+
+    btnGoTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+
+</html>
